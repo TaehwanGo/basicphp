@@ -1,0 +1,31 @@
+a{
+    color:black;
+    text-decoration: none;
+}
+#login{
+    text-align: right;
+    border-bottom: 1px solid gray;
+    margin: 0;
+}
+#grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+#grid #list{
+    border-right: 1px solid gray;
+    margin: 0;
+}
+#grid #article {
+    padding: 10px;
+}
+@media (max-width: 800px) {
+    #grid{
+        display: block;
+    }
+    #grid #list{
+        border-right: none;
+    }
+    #grid #article{
+        border-top: 1px solid gray;
+    }
+}
