@@ -1,5 +1,5 @@
 
-</div> <!-- article -->
+</div> <!--  article -->
 </div> <!-- grid -->
 <div id="end">
     <p class="end_info">(주)팀노바</p>

@@ -14,11 +14,11 @@ require_once ('lib/print.php'); // require_once : 중복해서 선언하는 것�
     </head>
     <body>
         <h1><a href="index.php">A/S 요청 게시판</a></h1>
-        <p id="login">로그인(미구현)</p>
+        <p id="login"><a href="author.php">회원관리</a></p>
         <div id="grid">
             <div id="list">
                 <a class="button" href="create.php">글쓰기</a>
-                <ol>
+                <ol id="menu_title">
                     <?php
                         print_list();
                     ?>
