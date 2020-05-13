@@ -1,6 +1,7 @@
 <?php
 require_once ('lib/print.php');
 require ('view/top.php');
+$article = get_contents();
 ?>
 <!---->
 <!--<!doctype html>-->
@@ -48,23 +49,38 @@ require ('view/top.php');
 <!--            --><?php
 //            print_description();
 //            ?>
-        <form action="update_process.php" method="post">
-            <input type="hidden" name="old_title" value="<?=$_GET['id']?>">
-            <p>
-                <input class="editText_title"  type="text" name="title"
-                       placeholder="Title" value="<?php print_title(); ?>">
-            </p>
-            <p>
-                <textarea class="editText_description" name="description" placeholder="Description">
-                    <?php
-                    print_description();
-                    ?>
-                </textarea>
-            </p>
-            <p class="button_submit">
-                <input class="button" type="submit" value="등록">
-            </p>
-        </form>
+<!--        기존 코드-->
+<!--        <form action="update_process.php" method="post">-->
+<!--            <input type="hidden" name="old_title" value="--><?//=$_GET['id']?><!--">-->
+<!--            <p>-->
+<!--                <input class="editText_title"  type="text" name="title"-->
+<!--                       placeholder="Title" value="--><?php //print_title(); ?><!--">-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                <textarea class="editText_description" name="description" placeholder="Description">-->
+<!--                    --><?php
+//                    print_description();
+//                    ?>
+<!--                </textarea>-->
+<!--            </p>-->
+<!--            <p class="button_submit">-->
+<!--                <input class="button" type="submit" value="등록">-->
+<!--            </p>-->
+<!--        </form>-->
+
+    <form action="update_process.php" method="post">
+        <input type="hidden" name="id" value="<?=$_GET['id'] ?>">
+        <p>
+            <input class="editText_title"  type="text" name="title"
+                   placeholder="Title" value="<?php print_title(); ?>">
+        </p>
+        <p>
+                <textarea class="editText_description" name="description" placeholder="Description"><?php print_description();?></textarea>
+        </p>
+        <p class="button_submit">
+            <input class="button" type="submit" value="등록">
+        </p>
+    </form>
 <?php
 require ('view/bottom.php');
 ?>

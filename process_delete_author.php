@@ -13,21 +13,27 @@ settype($_POST['id'], 'integer'); // id값은 반드시 정수가 됨
 $filtered = array(
     'id'=>mysqli_real_escape_string($conn, $_POST['id'])
 );
-
 $sql = "
     DELETE 
         FROM topic
+        WHERE author_id = {$filtered['id']}
+    ";
+mysqli_query($conn, $sql); // 이런명령은 위험하기때문에 사용자를 믿으면 안됨
+
+$sql = "
+    DELETE 
+        FROM author
         WHERE id = {$filtered['id']}
     ";
 //die($sql);
 $result = mysqli_query($conn, $sql);
 
 if($result === false){
-    echo "저장하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요.\n";
+    echo "삭제하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요.\n";
     echo mysqli_error($conn);
     error_log(mysqli_error($conn)); // saved in apache error log : homework : check this out // got it
 } else {
     echo '삭제에 성공했습니다. <a href="index.php">돌아가기</a>';
 }
 
-header('Location: /index.php');
+header('Location: /author.php');

@@ -62,3 +62,8 @@ a{
     width: 0;
     height: 0;
 }
+#author{
+    text-align: right;
+}
+/*#menu_title li { padding: 0px; }*/
+/*#menu li a { margin: 0px; display: block; width: 100%; height: 100%; }*/

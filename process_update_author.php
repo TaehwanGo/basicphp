@@ -12,19 +12,19 @@ $conn = connect_db(); // 이게 문제네 // 위에 require추가해서 해결
 settype($_POST['id'], 'integer'); // id값은 반드시 정수가 됨
 $filtered = array(
     'id'=>mysqli_real_escape_string($conn, $_POST['id']),
-    'title'=>mysqli_real_escape_string($conn, $_POST['title']),
-    'description'=>mysqli_real_escape_string($conn, $_POST['description'])
+    'name'=>mysqli_real_escape_string($conn, $_POST['name']),
+    'profile'=>mysqli_real_escape_string($conn, $_POST['profile'])
 );
 
 $sql = "
-    UPDATE topic
+    UPDATE author
     SET
-        title = '{$filtered['title']}',
-        description = '{$filtered['description']}'
+        name = '{$filtered['name']}',
+        profile = '{$filtered['profile']}'
     WHERE
-        id = '{$filtered['id']}'
+        id = {$filtered['id']}
     ";
-echo $sql;
+//die($sql);
 $result = mysqli_query($conn, $sql);
 
 if($result === false){
@@ -33,6 +33,7 @@ if($result === false){
     error_log(mysqli_error($conn)); // saved in apache error log : homework : check this out // got it
 } else {
     echo '저장에 성공했습니다. <a href="index.php">돌아가기</a>';
+    header('Location: author.php?id='.$filtered['id']);
 }
 
-header('Location: /index.php?id='.$_POST['id']);
+//header('Location: /index.php?id='.$_POST['id']);

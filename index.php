@@ -1,4 +1,6 @@
 <?php
+
+// 기존 코드
 require_once ('lib/print.php');
 /*
 //    function print_title(){
@@ -68,6 +70,15 @@ print_description();
 //                    echo "Hello, PHP";
 //                }
 ?>
+    <p id="author">
+        <?php
+            if(isset($_GET['id'])){
+//                $author = print_author();
+//                echo "by {$author}"; // by가 왜 뒤에 출력되는지 모르겠네
+                print_author();
+            }
+        ?>
+    </p>
     <?php if(isset($_GET['id'])){ ?>
         <div class="grid_update_delete">
             <div></div>
